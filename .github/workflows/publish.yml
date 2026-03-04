@@ -1,0 +1,45 @@
+name: OnePub CI
+
+on:
+  push:
+    branches: [ main ] # Runs Dry Run on every push to main
+    tags:
+      - 'v*'          # Runs actual Publish when a version tag is pushed
+
+jobs:
+  # Job 1: Check if the package is valid
+  test_and_dry_run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+      
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Analyze code
+        run: dart analyze
+
+      - name: Dry Run Publish
+        # This checks for missing files, formatting, and pubspec errors
+        run: dart pub publish --dry-run
+
+  # Job 2: Only runs if Job 1 passes AND we pushed a tag
+  publish:
+    needs: test_and_dry_run
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+      
+      - name: Install OnePub CLI
+        run: dart pub global activate onepub
+
+      - name: Authenticate & Publish
+        run: |
+          export ONEPUB_TOKEN=${{ secrets.ONEPUB_TOKEN }}
+          onepub import
+          dart pub publish --force

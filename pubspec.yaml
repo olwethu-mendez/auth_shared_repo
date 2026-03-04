@@ -1,7 +1,7 @@
 name: auth_shared
 description: "A shared private repository for common widget assests and what not used in AuthSystem upskilling project."
-version: 0.0.1
-homepage: 
+version: 1.0.0
+homepage: https://github.com/olwethu-mendez/auth_shared_repo.git
 
 environment:
   sdk: ^3.10.3
@@ -55,3 +55,4 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/to/font-from-package
+publish_to: https://onepub.dev/api/japspsdavu/
