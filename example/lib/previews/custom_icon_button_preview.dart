@@ -37,14 +37,14 @@ class _CustomIconButtonPreviewState extends State<CustomIconButtonPreview> {
           });
           await showDialog(
             context: context,
-            builder: (_innerContext) => AlertDialog(
+            builder: (innerContext) => AlertDialog(
               title: Text("Perform Action"),
               content: Text("You just Performed an action"),
               actions: [
                 TextButton(
                   child: Text("Ok"),
                   onPressed: () {
-                    Navigator.pop(_innerContext);
+                    Navigator.pop(innerContext);
                     setState(() {
                       submitting = false;
                     });
@@ -63,7 +63,7 @@ class _CustomIconButtonPreviewState extends State<CustomIconButtonPreview> {
           },
         ),
         DropdownButtonFormField<IconData>(
-          value: icon,
+          initialValue: icon,
           decoration: const InputDecoration(labelText: "Select Icon"),
           onChanged: (IconData? newValue) {
             setState(() {

@@ -23,7 +23,7 @@ class CustomSnackbar {
     String? actionsLabel,
     VoidCallback? onPressed,
   }) {
-    Color _getBackgroundColor(SnackbarType type) {
+    Color getBackgroundColor(SnackbarType type) {
       switch (type) {
         case SnackbarType.success:
           return Colors.green;
@@ -36,7 +36,7 @@ class CustomSnackbar {
       }
     }
 
-    IconData _getIcon(SnackbarType type) {
+    IconData getIcon(SnackbarType type) {
       switch (type) {
         case SnackbarType.success:
           return Icons.check;
@@ -49,8 +49,8 @@ class CustomSnackbar {
       }
     }
 
-    Color? snackBarColor = _getBackgroundColor(snackbarType);
-    IconData? icon = usesIcon == true ? _getIcon(snackbarType) : null;
+    Color? snackBarColor = getBackgroundColor(snackbarType);
+    IconData? icon = usesIcon == true ? getIcon(snackbarType) : null;
     final messenger = ScaffoldMessenger.of(context);
 
     messenger.clearSnackBars();
