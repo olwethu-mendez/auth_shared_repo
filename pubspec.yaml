@@ -1,6 +1,6 @@
 name: auth_shared
 description: "A shared private repository for common widget assests and what not used in AuthSystem upskilling project."
-version: 1.0.2
+version: 2.0.0
 homepage: https://github.com/olwethu-mendez/auth_shared_repo.git
 
 environment:
