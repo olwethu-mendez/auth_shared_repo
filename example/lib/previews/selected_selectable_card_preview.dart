@@ -1,4 +1,3 @@
-import 'package:auth_shared/auth_shared.dart'; // Adjust based on your actual package name
 import 'package:auth_shared/widget/cards/selectable_item_card.dart';
 import 'package:auth_shared/widget/cards/selected_item_card.dart';
 import 'package:example/widget_preview_page.dart';
