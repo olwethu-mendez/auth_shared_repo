@@ -33,7 +33,7 @@ class SelectableItemCard extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: isSelected ? activeColor.withOpacity(0.05) : Colors.transparent,
+        color: isSelected ? activeColor.withValues(alpha: 0.05) : Colors.transparent,
         border: Border.all(
           color: isSelected ? activeColor : Colors.grey.shade300,
           width: isSelected ? 2 : 1,
