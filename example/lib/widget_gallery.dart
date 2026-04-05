@@ -4,6 +4,8 @@ import 'package:example/previews/custom_snackbar_preview.dart';
 import 'package:example/previews/modal_bottom_sheet_preview.dart';
 import 'package:example/previews/password_input_preview.dart';
 import 'package:example/previews/phone_number_input_preview.dart';
+import 'package:example/previews/selected_selectable_card_preview.dart';
+import 'package:example/previews/user_card_preview.dart';
 import 'package:example/widgets/sidelined_header.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +24,9 @@ class WidgetGallery extends StatelessWidget {
       _GalleryItem("Alert Dialog", CustomDialogsPreview()),
       _GalleryItem("Modal Bottom Sheet", ModalBottomSheetPreview()),
       _GalleryItem("Snack Bar", CustomSnackarPreview()),
+      SidelinedHeader(title: "Cards"),
+      _GalleryItem("User Card", UserCardPreview()),
+      _GalleryItem("Selectable Card", SelectableItemPreview()),
     ];
 
     return Scaffold(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class UserCard extends StatelessWidget {
@@ -8,29 +9,30 @@ class UserCard extends StatelessWidget {
     this.title,
     this.imageUrl,
     this.onTap,
+    this.trailing
   });
   final String firstName;
   final String lastName;
   final String? title;
   final String? imageUrl;
   final VoidCallback? onTap;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CircleAvatar(
-        child: imageUrl != null ? Image.network(imageUrl!) : Icon(Icons.person),
-      ),
-      title: Text("$firstName $lastName"), // User's name
-      subtitle: title != null ? Text(title!) : null, // User's role/info
-      trailing: onTap != null
-          ? const Icon(Icons.arrow_forward_ios)
-          : null, // Trailing icon
-      onTap: onTap,
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: 16.0,
-        vertical: 8.0,
-      ),
-    );
+            leading: CircleAvatar(
+              foregroundImage: imageUrl != null
+                  ? CachedNetworkImageProvider(imageUrl!)
+                  : null,
+              child: imageUrl == null
+                  ? Icon(Icons.account_circle)
+                  : null,
+            ),
+            title: Text("$firstName $lastName"),
+            subtitle: Text(title!),
+            onTap: onTap,
+            trailing: trailing,
+          );
   }
 }
