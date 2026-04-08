@@ -1,6 +1,8 @@
 import 'package:example/previews/custom_dialogs_preview.dart';
 import 'package:example/previews/custom_icon_button_preview.dart';
 import 'package:example/previews/custom_snackbar_preview.dart';
+import 'package:example/previews/custom_toggle_button_preview.dart';
+import 'package:example/previews/greyed_out_preview.dart';
 import 'package:example/previews/modal_bottom_sheet_preview.dart';
 import 'package:example/previews/password_input_preview.dart';
 import 'package:example/previews/phone_number_input_preview.dart';
@@ -20,6 +22,7 @@ class WidgetGallery extends StatelessWidget {
       _GalleryItem("Phone Number Input", PhoneNumberInputPreview()),
       SidelinedHeader(title: "Buttons"),
       _GalleryItem("Icon Button", CustomIconButtonPreview()),
+      _GalleryItem("Toggle Button", CustomToggleButtonPreview()),
       SidelinedHeader(title: "Popups"),
       _GalleryItem("Alert Dialog", CustomDialogsPreview()),
       _GalleryItem("Modal Bottom Sheet", ModalBottomSheetPreview()),
@@ -27,6 +30,8 @@ class WidgetGallery extends StatelessWidget {
       SidelinedHeader(title: "Cards"),
       _GalleryItem("User Card", UserCardPreview()),
       _GalleryItem("Selectable Card", SelectableItemPreview()),
+      SidelinedHeader(title: "Formatting"),
+      _GalleryItem("Greyed Out", GreyedOutPreview()),
     ];
 
     return Scaffold(

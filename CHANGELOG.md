@@ -1,3 +1,5 @@
+## 2.2.0
+* Added Toggle Button, as well as the Greyed Out formatter with the capability to disable.
 ## 2.1.0
 * Fixed user card and added selectable and selected item cards, as well as added preview for all three cards
 ## 2.0.0

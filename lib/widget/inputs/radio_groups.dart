@@ -43,10 +43,13 @@ class _DynamicRadioGroupState<T> extends State<DynamicRadioGroup<T>> {
             widget.onChanged(newValue);
           }
         },
-        child: RadioListTile<T>.adaptive(
-          contentPadding: EdgeInsets.all(0),
-          title: Text(widget.labelBuilder(item)),
-          value: item,
+        child: SizedBox(
+          width: 150,
+          child: RadioListTile<T>.adaptive(
+            contentPadding: EdgeInsets.all(0),
+            title: Text(widget.labelBuilder(item)),
+            value: item,
+          ),
         ),
       );
     }).toList();
@@ -56,8 +59,7 @@ class _DynamicRadioGroupState<T> extends State<DynamicRadioGroup<T>> {
               if (widget.title != null) ...[
                 Padding(
                   padding: EdgeInsetsGeometry.symmetric(horizontal: 12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Wrap(
                     children: [
                       SizedBox(height: 16),
                       Text(widget.title!),
@@ -71,6 +73,7 @@ class _DynamicRadioGroupState<T> extends State<DynamicRadioGroup<T>> {
             ],
           )
         : Column(
+           crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (widget.title != null) ...[
                 Padding(
